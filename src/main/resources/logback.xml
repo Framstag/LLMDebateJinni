@@ -1,0 +1,38 @@
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="debuglog" class="ch.qos.logback.core.FileAppender">
+        <file>debug.log</file>
+        <append>false</append>
+
+        <encoder>
+            <pattern>%d{YYYY-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.framstag.llmdebatejinni.service.StdOutAgentListener" level="DEBUG">
+        <appender-ref ref="debuglog" />
+    </logger>
+    <logger name="dev.langchain4j.agentic.supervisor.SupervisorPlanner" level="INFO">
+        <appender-ref ref="debuglog" />
+    </logger>
+    <logger name="dev.langchain4j.agentic.supervisor.SupervisorPlanner" level="WARN">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="com.framstag.llmdebatejinni.cli.DiscussCmd" level="INFO">
+        <appender-ref ref="debuglog" />
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
