@@ -128,7 +128,8 @@ public class DebateService {
                     "PRO",
                     lastStatement,
                     round,
-                    audienceEvaluation.status());
+                    audienceEvaluation.status(),
+                    audienceEvaluation.reasoning());
             transcript
                     .append("Pro Rebuttal Round ")
                     .append(round).append(":\n")
@@ -145,7 +146,8 @@ public class DebateService {
                     "CONTRA",
                     lastStatement,
                     round,
-                    audienceEvaluation.status());
+                    audienceEvaluation.status(),
+                    audienceEvaluation.reasoning());
             transcript
                     .append("Contra Rebuttal Round ")
                     .append(round).append(":\n")

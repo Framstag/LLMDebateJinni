@@ -21,7 +21,7 @@ public interface RebuttalBAgent {
             The language to use is: {{language}}
             Your position: {{position}}
             Current round: {{iteration}}
-            Audience response: {{audience}}
+            Audience feedback: {{audienceStatus}} - {{audienceReasoning}}
 
             Opponent's last statement:
 
@@ -30,6 +30,7 @@ public interface RebuttalBAgent {
             </statement>
 
             Give a rebuttal.
+            Take into account the feedback of the audience to keep the debate going and interesting for the audience.
             Try to offer new arguments or facts that might convince the opponent.
 
             Requirements:
@@ -37,12 +38,12 @@ public interface RebuttalBAgent {
             - directly address the opponent and its arguments
             - strengthen the contra side
             - do not repeat your opening verbatim
-            - take into account the feedback of the audience to keep the debate going
             """)
     String rebuttal(@V("topic") String topic,
                     @V("language") String language,
                     @V("position") String position,
                     @V("opponentStatement") String opponentStatement,
                     @V("iteration") int iteration,
-                    @V("audience") DebateStatus debateStatus);
+                    @V("audienceStatus") DebateStatus audienceStatus,
+                    @V("audienceReasoning") String audienceReasoning);
 }

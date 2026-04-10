@@ -5,5 +5,6 @@ public enum DebateStatus {
     TOO_MUCH_REPETITION,
     TOO_BORING,
     TOO_MUCH_FACTS,
+    TOO_POLITE,
     STOP      // Arguments are repeating, everything important has been said
 }

@@ -35,7 +35,7 @@ public class DiscussCmd implements Callable<Integer> {
     boolean logging = false;
 
     @CommandLine.Option(names={"--timeout"}, arity = "0..1", description = "Model calling timeout in seconds")
-    int timeout = 60;
+    int timeout = 120;
 
     @CommandLine.Parameters(index = "0",description = "Topic to be discussed")
     String topic;
@@ -52,7 +52,7 @@ public class DiscussCmd implements Callable<Integer> {
                 .baseUrl(modelUrl.toString())
                 .customHeaders(headers)
                 .modelName(modelName)
-                .responseFormat(ResponseFormat.JSON)
+                .responseFormat(ResponseFormat.TEXT)
                 .logRequests(logging)
                 .logResponses(logging)
                 .timeout(Duration.ofSeconds(timeout))
